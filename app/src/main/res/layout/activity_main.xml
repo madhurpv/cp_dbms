@@ -7,9 +7,6 @@
     android:padding="20dp"
     tools:context=".MainActivity">
 
-    <!--Edittext for getting users phone number-->
-
-    <!--Button for getting OTP-->
 
     <EditText
         android:id="@+id/idEdtPhoneNumber"
@@ -55,7 +52,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idBtnGetOtp" />
 
-    <!--button for verifying user OTP-->
     <Button
         android:id="@+id/idBtnVerify"
         android:layout_width="match_parent"

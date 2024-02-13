@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // if the code is correct and the task is successful
                             // we are sending our user to new activity.
-                            Intent i = new Intent(MainActivity.this, HomeActivity.class);
+                            Intent i = new Intent(MainActivity.this, SignUpActivity.class);
                             startActivity(i);
                             finish();
                         } else {
