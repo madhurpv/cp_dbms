@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -37,10 +38,21 @@ public class MainActivity extends AppCompatActivity {
     // string for storing our verification ID
     private String verificationId;
 
+    SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+        if(sharedPreferences.getLong("login", -1) != -1){
+            Intent i = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(i);
+            finish();
+        }
+
 
         // below line is for getting instance
         // of our FirebaseAuth.
@@ -94,22 +106,22 @@ public class MainActivity extends AppCompatActivity {
         // inside this method we are checking if
         // the code entered is correct or not.
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // if the code is correct and the task is successful
-                            // we are sending our user to new activity.
-                            Intent i = new Intent(MainActivity.this, SignUpActivity.class);
-                            startActivity(i);
-                            finish();
-                        } else {
-                            // if the code is not correct then we are
-                            // displaying an error message to the user.
-                            Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                        }
+            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                        myEdit.putLong("login", System.currentTimeMillis());
+                        myEdit.apply();
+
+                        Intent i = new Intent(MainActivity.this, SignUpActivity.class);
+                        startActivity(i);
+                        finish();
+                    } else {
+                        Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }
-                });
+                }
+            });
     }
 
 
