@@ -33,6 +33,7 @@ public class SignUpActivity extends AppCompatActivity {
                 if(!editTextName.getText().toString().equals("") && !editTextFlatNo.getText().toString().equals("") && !editTextNumberOfFamilyMembers.getText().toString().equals("")) {
                     SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
                     SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                    myEdit.putLong("login", System.currentTimeMillis());
                     myEdit.putString("name", editTextName.getText().toString());
                     myEdit.putInt("flatNo", Integer.parseInt(editTextFlatNo.getText().toString()));
                     myEdit.putInt("numberOfFamilyMembers", Integer.parseInt(editTextNumberOfFamilyMembers.getText().toString()));
