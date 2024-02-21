@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CP_DBMS">
         <activity
+            android:name=".Complaints"
+            android:exported="false" />
+        <activity
             android:name=".Notices"
             android:exported="false" />
         <activity

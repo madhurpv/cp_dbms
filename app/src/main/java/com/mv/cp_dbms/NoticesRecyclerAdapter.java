@@ -16,22 +16,25 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class NoticesRecyclerAdapter extends RecyclerView.Adapter<NoticesRecyclerAdapter.NoticesRecyclerViewHolder> {
 
-    private List<String> titles;
-    private List<Long> times;
-    private List<String> details;
+    private List<String> titles = new ArrayList<>();
+    private List<Long> times = new ArrayList<>();
+    private List<String> details = new ArrayList<>();
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    NoticesRecyclerAdapter(Context context, List<String> titles, List<Long> times, List<String> details) {
+    NoticesRecyclerAdapter(Context context, List<NoticesClass> notices) {
         this.mInflater = LayoutInflater.from(context);
-        this.titles = titles;
-        this.times = times;
-        this.details = details;
+        for(int i=0; i<notices.size(); i++){
+            this.titles.add(notices.get(i).title);
+            this.times.add(notices.get(i).time);
+            this.details.add(notices.get(i).details);
+        }
     }
 
     // inflates the row layout from xml when needed
@@ -44,6 +47,7 @@ public class NoticesRecyclerAdapter extends RecyclerView.Adapter<NoticesRecycler
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(NoticesRecyclerViewHolder holder, int position) {
+
         String animal = titles.get(position);
         holder.recyclerRowTitle.setText(animal);
         Long selectedTime = times.get(position);
@@ -86,6 +90,7 @@ public class NoticesRecyclerAdapter extends RecyclerView.Adapter<NoticesRecycler
             recyclerRowDetails = itemView.findViewById(R.id.recyclerRowDetails);
             recyclerHomeCardView = itemView.findViewById(R.id.recyclerHomeCardView);
             //recyclerRowTitle.setMovementMethod(new ScrollingMovementMethod());
+
             itemView.setOnClickListener(this);
         }
 
