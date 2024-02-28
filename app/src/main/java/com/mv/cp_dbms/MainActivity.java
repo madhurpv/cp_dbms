@@ -122,6 +122,10 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
+                        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                        myEdit.putString("phone number", "+91" + edtPhone.getText().toString());
+                        myEdit.apply();
+
                         Intent i = new Intent(MainActivity.this, SignUpActivity.class);
                         startActivity(i);
                         finish();

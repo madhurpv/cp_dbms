@@ -33,6 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class Notices extends AppCompatActivity implements NoticesRecyclerAdapter.ItemClickListener{
@@ -137,6 +138,8 @@ public class Notices extends AppCompatActivity implements NoticesRecyclerAdapter
 
             }
         });
+
+
     }
 
 
