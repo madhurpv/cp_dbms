@@ -60,12 +60,12 @@ public class NoticesRecyclerAdapter extends RecyclerView.Adapter<NoticesRecycler
         //}
         //else if(wins.get(position) == MatchClass.MATCH_WIN){ // WIN
             holder.recyclerHomeCardView.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#96FF79")));
-            Log.d("QWER", position + " Match Win!");
+            //Log.d("QWER", position + " Match Win!");
         //}
         //else { // ELSE
             holder.recyclerHomeCardView.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#CACACA")));
         //}
-        Log.d("QWER", "Title : " + titles.get(position));
+        //Log.d("QWER", "Title : " + titles.get(position));
 
     }
 

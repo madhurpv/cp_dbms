@@ -1,5 +1,6 @@
 package com.mv.cp_dbms;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +13,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,6 +21,15 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -31,6 +42,15 @@ public class Notices extends AppCompatActivity implements NoticesRecyclerAdapter
 
     public static NoticesRecyclerAdapter adapter; // Edited from AddMatch.java
     RecyclerView noticesRecyclerView;
+
+
+    // creating a variable for our
+    // Firebase Database.
+    FirebaseDatabase firebaseDatabase;
+
+    // creating a variable for our Database
+    // Reference for Firebase.
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +67,15 @@ public class Notices extends AppCompatActivity implements NoticesRecyclerAdapter
         adapter = new NoticesRecyclerAdapter(this, notices);
         adapter.setClickListener(this);
         noticesRecyclerView.setAdapter(adapter);
+
+
+
+        // below line is used to get the
+        // instance of our FIrebase database.
+        firebaseDatabase = FirebaseDatabase.getInstance();
+
+        // below line is used to get reference for our database.
+        databaseReference = firebaseDatabase.getReference();
 
 
 
@@ -95,7 +124,24 @@ public class Notices extends AppCompatActivity implements NoticesRecyclerAdapter
 
 
 
+        databaseReference.child("Notices").setValue("12345").addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Toast.makeText(Notices.this, "Successful!", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(Notices.this, "Error!" + e, Toast.LENGTH_SHORT).show();
+                Log.d("QWER", "Error : " + e);
+
+            }
+        });
     }
+
+
+
+
 
 
 }
