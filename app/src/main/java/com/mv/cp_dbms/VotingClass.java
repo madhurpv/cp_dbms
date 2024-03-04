@@ -5,8 +5,8 @@ import java.util.List;
 
 public class VotingClass {
 
-    static int VOTED = 1;
-    static int NOT_VOTED = 0;
+    static boolean VOTED = true;
+    static boolean NOT_VOTED = false;
 
 
     String title = "";
@@ -15,9 +15,9 @@ public class VotingClass {
     long endTime = -1;
     List<String> options = new ArrayList<>();
     int selection;
-    int voted;
+    boolean voted;
 
-    public VotingClass(String title, long startTime, long endTime, String details, List<String> options, int selection, int voted){
+    public VotingClass(String title, long startTime, long endTime, String details, List<String> options, int selection, boolean voted){
         this.title = title;
         this.startTime = startTime;
         this.endTime = endTime;

@@ -148,7 +148,7 @@ public class Notices extends AppCompatActivity implements NoticesRecyclerAdapter
 
 
 
-        databaseReference.child("Notices").setValue("12345").addOnCompleteListener(new OnCompleteListener<Void>() {
+        /*databaseReference.child("Notices").setValue("12345").addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 Toast.makeText(Notices.this, "Successful!", Toast.LENGTH_SHORT).show();
@@ -160,7 +160,7 @@ public class Notices extends AppCompatActivity implements NoticesRecyclerAdapter
                 Log.d("QWER", "Error : " + e);
 
             }
-        });
+        });*/
 
 
 

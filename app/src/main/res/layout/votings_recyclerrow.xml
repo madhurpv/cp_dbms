@@ -15,7 +15,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
-        android:backgroundTint="#CACACA"
+        android:backgroundTint="#CBF4A1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -60,7 +60,7 @@
                 android:textSize="13sp" />
 
             <RadioGroup
-                android:id="@+id/radiogroup"
+                android:id="@+id/radioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
@@ -68,9 +68,20 @@
                 android:orientation="vertical" />
 
 
+            <Button
+                android:id="@+id/voteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:text="Vote"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+
 
             <TextView
-                android:id="@+id/recyclerRowDate"
+                android:id="@+id/recyclerRowStartDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -81,6 +92,19 @@
                 android:layout_marginTop="13dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/recyclerRowEndDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="cursive"
+                android:text="01-01-2000"
+                android:textColor="#333333"
+                android:textSize="20sp"
+                android:layout_marginTop="13dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerRowStartDate" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
