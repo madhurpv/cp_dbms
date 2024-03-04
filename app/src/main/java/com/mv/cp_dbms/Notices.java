@@ -35,14 +35,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class Notices extends AppCompatActivity implements NoticesRecyclerAdapter.ItemClickListener{
 
 
     public static List<NoticesClass> notices = new ArrayList<>();
 
-    public static NoticesRecyclerAdapter adapter; // Edited from AddMatch.java
+    public static NoticesRecyclerAdapter adapter;
     RecyclerView noticesRecyclerView;
 
 
@@ -66,9 +68,7 @@ public class Notices extends AppCompatActivity implements NoticesRecyclerAdapter
         noticesRecyclerView = findViewById(R.id.noticesRecyclerView);
         noticesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         noticesRecyclerView.setNestedScrollingEnabled(true);
-        adapter = new NoticesRecyclerAdapter(this, notices);
-        adapter.setClickListener(this);
-        noticesRecyclerView.setAdapter(adapter);
+
 
 
 
@@ -79,6 +79,29 @@ public class Notices extends AppCompatActivity implements NoticesRecyclerAdapter
         // below line is used to get reference for our database.
         databaseReference = firebaseDatabase.getReference();
 
+        databaseReference.child("Notices").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("QWER", "Error getting data", task.getException());
+                }
+                else {
+                    Log.d("QWER", "Got Notices data", task.getException());
+                    Iterator<DataSnapshot> iterator = task.getResult().getChildren().iterator();
+                    while (iterator.hasNext()) {
+                        DataSnapshot childSnapshot = iterator.next();
+                        Map<String, Object> noticeData = (Map<String, Object>) childSnapshot.getValue();
+                        notices.add(new NoticesClass(childSnapshot.getKey(), (Long) noticeData.get("Time"), (String) noticeData.get("Details")));
+                        //Toast.makeText(Notices.this, childSnapshot.getKey(), Toast.LENGTH_SHORT).show();
+                    }
+                    //Log.d("QWER", "Notices : "+ notices.get(3).title);
+                    //adapter.notifyDataSetChanged();
+                    adapter = new NoticesRecyclerAdapter(Notices.this, notices);
+                    adapter.setClickListener(Notices.this);
+                    noticesRecyclerView.setAdapter(adapter);
+                }
+            }
+        });
 
     }
 

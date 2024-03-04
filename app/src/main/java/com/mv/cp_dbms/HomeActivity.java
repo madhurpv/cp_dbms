@@ -30,7 +30,8 @@ public class HomeActivity extends AppCompatActivity {
         votingCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(HomeActivity.this, Voting.class);
+                startActivity(i);
             }
         });
 

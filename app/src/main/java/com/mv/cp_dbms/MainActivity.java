@@ -165,7 +165,6 @@ public class MainActivity extends AppCompatActivity {
                                         Log.d("QWER", "Data: " + "+91" + edtPhone.getText().toString());
                                         Log.d("QWER", "Data: " + childSnapshot.getKey().toString().getClass());
                                         if(childSnapshot.getKey().toString().equals("+91" + edtPhone.getText().toString())){
-                                            //TODO : Welcome back!
 
                                             found[0] =true;
                                             Log.d("QWER", "Equal are " + childSnapshot.getKey().toString() + " and" + edtPhone.getText().toString());
