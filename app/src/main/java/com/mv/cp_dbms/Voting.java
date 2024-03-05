@@ -56,9 +56,9 @@ public class Voting extends AppCompatActivity implements VotingRecyclerAdapter.I
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
 
 
-        List<String> voting1options = new ArrayList<>();
-        voting1options.add("Yes");voting1options.add("No");voting1options.add("Maybe");
-        votings.add(new VotingClass("Voting1", 1709428286000L, 1709728286000L, "Vote for humanity", voting1options, -1, VotingClass.NOT_VOTED));
+        //List<String> voting1options = new ArrayList<>();
+        //voting1options.add("Yes");voting1options.add("No");voting1options.add("Maybe");
+        //votings.add(new VotingClass("Voting1", 1709428286000L, 1709728286000L, "Vote for humanity", voting1options, -1, VotingClass.NOT_VOTED));
 
 
 

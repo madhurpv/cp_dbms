@@ -67,7 +67,8 @@ public class HomeActivity extends AppCompatActivity {
         profileCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(i);
             }
         });
     }
