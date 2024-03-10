@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     EditText editTextName, editTextFamilyMembers, editTextFlatNumber;
     Button saveButton;
+    ImageButton logOutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +44,21 @@ public class ProfileActivity extends AppCompatActivity {
         editTextFamilyMembers = findViewById(R.id.editTextFamilyMembers);
         editTextFlatNumber = findViewById(R.id.editTextFlatNumber);
         saveButton = findViewById(R.id.saveButton);
+        logOutButton = findViewById(R.id.logOutButton);
 
 
         editTextName.setText(sharedPreferences.getString("name", "Name"));
         editTextFamilyMembers.setText("" + sharedPreferences.getInt("numberOfFamilyMembers", -1));
         editTextFlatNumber.setText("" + sharedPreferences.getInt("flatNo", -1));
         editTextFlatNumber.setFocusable(false);
+
+        logOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                myEdit.clear().apply();
+            }
+        });
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
