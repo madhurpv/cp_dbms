@@ -3,13 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/users/madhur/Apps/AndroidStudio/Projects/CP_DBMS/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1715" />
+        <entry key="..\:/users/madhur/Apps/AndroidStudio/Projects/CP_DBMS/app/src/main/res/drawable/ic_baseline_cancel_24.xml" value="0.1715" />
         <entry key="..\:/users/madhur/Apps/AndroidStudio/Projects/CP_DBMS/app/src/main/res/layout/activity_complaints.xml" value="0.136" />
+        <entry key="..\:/users/madhur/Apps/AndroidStudio/Projects/CP_DBMS/app/src/main/res/layout/activity_guests.xml" value="0.22826086956521738" />
         <entry key="..\:/users/madhur/Apps/AndroidStudio/Projects/CP_DBMS/app/src/main/res/layout/activity_home.xml" value="0.12" />
         <entry key="..\:/users/madhur/Apps/AndroidStudio/Projects/CP_DBMS/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/users/madhur/Apps/AndroidStudio/Projects/CP_DBMS/app/src/main/res/layout/activity_notices.xml" value="0.10400000000000001" />
         <entry key="..\:/users/madhur/Apps/AndroidStudio/Projects/CP_DBMS/app/src/main/res/layout/activity_profile.xml" value="0.176" />
         <entry key="..\:/users/madhur/Apps/AndroidStudio/Projects/CP_DBMS/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
         <entry key="..\:/users/madhur/Apps/AndroidStudio/Projects/CP_DBMS/app/src/main/res/layout/activity_voting.xml" value="0.10400000000000001" />
+        <entry key="..\:/users/madhur/Apps/AndroidStudio/Projects/CP_DBMS/app/src/main/res/layout/guests_recyclerrow.xml" value="0.264" />
         <entry key="..\:/users/madhur/Apps/AndroidStudio/Projects/CP_DBMS/app/src/main/res/layout/notices_dialog.xml" value="0.264" />
         <entry key="..\:/users/madhur/Apps/AndroidStudio/Projects/CP_DBMS/app/src/main/res/layout/notices_recyclerrow.xml" value="0.32004310344827586" />
         <entry key="..\:/users/madhur/Apps/AndroidStudio/Projects/CP_DBMS/app/src/main/res/layout/votings_recyclerrow.xml" value="0.264" />

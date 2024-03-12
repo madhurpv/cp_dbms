@@ -38,7 +38,8 @@ public class HomeActivity extends AppCompatActivity {
         guestsCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(HomeActivity.this, GuestsActivity.class);
+                startActivity(i);
             }
         });
 
