@@ -12,4 +12,12 @@ public class ComplaintsClass {
     String complaint_maker_number = "-1";
     String complaint_maker_name = "-1";
 
+    public ComplaintsClass(String title, String description, Long time, int complaint_state, String complaint_maker_number, String complaint_maker_name) {
+        this.title = title;
+        this.description = description;
+        this.time = time;
+        this.complaint_state = complaint_state;
+        this.complaint_maker_number = complaint_maker_number;
+        this.complaint_maker_name = complaint_maker_name;
+    }
 }

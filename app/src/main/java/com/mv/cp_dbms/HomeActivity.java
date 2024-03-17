@@ -61,7 +61,8 @@ public class HomeActivity extends AppCompatActivity {
         complaintsCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(HomeActivity.this, Complaints.class);
+                startActivity(i);
             }
         });
 

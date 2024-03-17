@@ -46,7 +46,7 @@ public class ComplaintsRecyclerAdapter extends RecyclerView.Adapter<ComplaintsRe
     // inflates the row layout from xml when needed
     @Override
     public ComplaintsRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.notices_recyclerrow, parent, false);
+        View view = mInflater.inflate(R.layout.complaints_recyclerrow, parent, false);
         return new ComplaintsRecyclerViewHolder(view);
     }
 
@@ -57,9 +57,10 @@ public class ComplaintsRecyclerAdapter extends RecyclerView.Adapter<ComplaintsRe
         holder.recyclerRowTitle.setText(titles.get(position));
         Long selectedTime = times.get(position);
         LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(selectedTime), ZoneId.systemDefault());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm  dd-MM");
         holder.recyclerRowDate.setText(date.format(formatter));
         holder.recyclerRowDetails.setText(descriptions.get(position));
+        holder.recyclerRowName.setText(complaint_maker_names.get(position));
         if(complaint_states.get(position) == ComplaintsClass.COMPLAINT_RESOLVED){ // LOSS
             holder.recyclerHomeCardView.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FF7979")));
         }
@@ -86,6 +87,7 @@ public class ComplaintsRecyclerAdapter extends RecyclerView.Adapter<ComplaintsRe
         TextView recyclerRowTitle;
         TextView recyclerRowDate;
         TextView recyclerRowDetails;
+        TextView recyclerRowName;
         CardView recyclerHomeCardView;
 
         ComplaintsRecyclerViewHolder(View itemView) {
@@ -93,6 +95,7 @@ public class ComplaintsRecyclerAdapter extends RecyclerView.Adapter<ComplaintsRe
             recyclerRowTitle = itemView.findViewById(R.id.recyclerRowTitle);
             recyclerRowDate = itemView.findViewById(R.id.recyclerRowDate);
             recyclerRowDetails = itemView.findViewById(R.id.recyclerRowDetails);
+            recyclerRowName = itemView.findViewById(R.id.recyclerRowName);
             recyclerHomeCardView = itemView.findViewById(R.id.recyclerHomeCardView);
             //recyclerRowTitle.setMovementMethod(new ScrollingMovementMethod());
 
