@@ -61,9 +61,9 @@ public class Notices extends AppCompatActivity implements NoticesRecyclerAdapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notices);
 
-        notices.add(new NoticesClass("Title1", 1708227286000L, "12345678987654321`123456tfdszxcvfd`````~`~`````reovkoerkverkrokevekvdsk5454545454545454"));
-        notices.add(new NoticesClass("Title2", 1710732886000L, "Details here"));
-        notices.add(new NoticesClass("Title3", 1742268886000L, "This is a notice.\nDo not pay any attention\nStop Reading\nI said Stop!\nByebye!\nSee You!"));
+        //notices.add(new NoticesClass("Title1", 1708227286000L, "12345678987654321`123456tfdszxcvfd`````~`~`````reovkoerkverkrokevekvdsk5454545454545454"));
+        //notices.add(new NoticesClass("Title2", 1710732886000L, "Details here"));
+        //notices.add(new NoticesClass("Title3", 1742268886000L, "This is a notice.\nDo not pay any attention\nStop Reading\nI said Stop!\nByebye!\nSee You!"));
 
         noticesRecyclerView = findViewById(R.id.noticesRecyclerView);
         noticesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
