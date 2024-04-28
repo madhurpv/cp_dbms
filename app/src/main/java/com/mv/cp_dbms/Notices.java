@@ -170,6 +170,13 @@ public class Notices extends AppCompatActivity implements NoticesRecyclerAdapter
 
 
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        notices.clear();
+        adapter.notifyDataSetChanged();
+    }
+
 
 
 }

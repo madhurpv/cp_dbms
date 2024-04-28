@@ -25,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -101,7 +102,12 @@ public class Voting extends AppCompatActivity implements VotingRecyclerAdapter.I
                         Map<String, Long> options_map = (Map<String, Long>) noticeData.get("Options");
                         List<String> options = new ArrayList<>(options_map.keySet());
                         Map<String, Long> votedFlats = (Map<String, Long>) noticeData.get("Voters");
-                        Log.d("QWER", votedFlats.toString());
+                        if(votedFlats == null){
+                            votedFlats = new HashMap<>();
+                        }
+                        else{
+                            Log.d("QWER", votedFlats.toString());
+                        }
 
                         boolean found = false;
                         int flatNo = sharedPreferences.getInt("flatNo", -1);
@@ -168,7 +174,7 @@ public class Voting extends AppCompatActivity implements VotingRecyclerAdapter.I
             }
         });
 
-        dialog.show();
+        //dialog.show();
 
 
 
@@ -192,4 +198,15 @@ public class Voting extends AppCompatActivity implements VotingRecyclerAdapter.I
 
 
     }
+
+
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        votings.clear();
+        adapter.notifyDataSetChanged();
+    }
+
 }

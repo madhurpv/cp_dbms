@@ -319,4 +319,16 @@ public class GuestsActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        guestsAll.clear();
+        guestsNew.clear();
+        displayGuests.clear();
+        adapter.notifyDataSetChanged();
+    }
 }

@@ -224,4 +224,11 @@ public class Complaints extends AppCompatActivity {
 
 
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        displayComplaints.clear();
+        adapter.notifyDataSetChanged();
+    }
+
 }
